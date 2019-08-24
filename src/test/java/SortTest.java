@@ -18,4 +18,18 @@ public class SortTest {
         arr=sort.bubbleSort(arr);
         display(arr);
     }
+
+    @Test
+    public void TestSelectionSort(){
+        display(arr);
+        arr=sort.selectionSort(arr);
+        display(arr);
+    }
+
+    @Test
+    public void TestInsertionSort(){
+        display(arr);
+        arr=sort.insertionSore(arr);
+        display(arr);
+    }
 }
