@@ -46,11 +46,37 @@ public class Sort {
             current=arr[i+1]; //需要比较后插入的值
             index=i;//用于跟current比较的值的下标 （排序好的区域的最大下标）
             while(index>=0 && arr[index]>current){
-                arr[index+1]=arr[index]; //数组的值往后移动，流出一个空位让current插入
+                arr[index+1]=arr[index]; //数组的值往后移动，留出一个空位让current插入
                 index--; // 寻找插入的位置
             }
             arr[index+1]=current;// 在比current小的值后面插入current
         }
         return arr;
     }
+
+    /**
+     * 希尔排序
+     * 优先比较较远的数据
+     * @param arr
+     * @return
+     */
+    public int[] ShellSort(int arr[]){
+        int len=arr.length;
+        int temp,gap=len/2; //初始增量
+        while (gap>0){
+            for(int i=gap;i<len;i++){ //若长度为10 则可以分为5组 按下标为0，5 1，6...分组来比较
+                temp=arr[i]; //获取较远的数据值
+                int index=i-gap; //让下标对应 gap=后下标-前下标
+                while (index>=0 && arr[index]>temp){
+                    arr[index+gap]=arr[index];  //把大数的值往后调
+                    index-=gap;// 交换数据
+                }
+                arr[index+gap]=temp; //i=index+gap;
+            }
+            gap/=2;
+        }
+        return arr;
+    }
+
+    public int[]
 }

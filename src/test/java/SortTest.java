@@ -32,4 +32,11 @@ public class SortTest {
         arr=sort.insertionSore(arr);
         display(arr);
     }
+
+    @Test
+    public void TestShellSort(){
+        display(arr);
+        arr=sort.ShellSort(arr);
+        display(arr);
+    }
 }
