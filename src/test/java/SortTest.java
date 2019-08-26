@@ -39,4 +39,19 @@ public class SortTest {
         arr=sort.ShellSort(arr);
         display(arr);
     }
+
+    @Test
+    public void TestQuickSort(){
+        display(arr);
+        arr=sort.quickSort(arr,0,arr.length-1);
+        display(arr);
+    }
+//    @Test
+//    public void TestQuickSort2(){
+//        display(arr);
+//        arr=sort.quickSort2(arr,0,arr.length-1);
+//        display(arr);
+//    }
+
+
 }

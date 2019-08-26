@@ -1,12 +1,17 @@
 package com.zhku.mh;
 
 public class Sort {
-    public void swap(int[] data, int i, int j) {
+    public static void swap(int[] data, int i, int j) {
         int temp = data[i];
         data[i] = data[j];
         data[j] = temp;
     }
-
+    public static void display(int arr[]){
+        for (int data:arr) {
+            System.out.print(data+"  ");
+        }
+        System.out.println(" ");
+    }
     /**
      * 冒泡排序
      * 最佳情况：T(n) = O(n)   最差情况：T(n) = O(n2)   平均情况：T(n) = O(n2)
@@ -78,5 +83,80 @@ public class Sort {
         return arr;
     }
 
-    public int[]
+//    public int quickSort1(int arr[],int k,int l){
+//        int i=k,j=l;
+//        int temp=arr[i];
+//        while (i<j){
+//            while (arr[i]<temp) i++;
+//            while (arr[j]>temp) j--;
+//            if(i==j){
+//                display(arr);
+//                return i;
+//            }
+//            swap(arr,i,j);
+//            i=k;j=l;
+//        }
+//        return 0;
+//    }
+//
+//    public int[] quickSort2(int[] arr,int i,int j){
+//        int k=quickSort1(arr,i,j);
+//        System.out.println(k);
+//        if(k>i+1){
+//            quickSort1(arr,i,k-1);
+//        }
+//        if(k<j-1){
+//            quickSort1(arr,k+1,j);
+//        }
+//        return arr;
+//   }
+    /**
+     * @Description: 快速排序返回基准的下标
+     * @Param [array, low, hign]
+     * @return int
+     * @Author mh
+     * @Date 2019/8/26
+     */
+    public int partion(int []array,int low,int hign){
+        int tmp=array[low];
+        while(low<hign){
+            while(low<hign&&array[hign]>=tmp){
+                --hign;
+            }
+            if(low>=hign){
+                break;
+            }else{
+                array[low]=array[hign];
+            }
+            while(low<hign&&array[low]<=tmp){
+                ++low;
+            }
+            if(low>=hign){
+                break;
+            }else{
+                array[hign]=array[low];
+            }
+        }
+        array[low]=tmp;
+        display(array);
+        return low;
+    }
+    /**
+     * @Description: 递归方法的快速排序
+     * @Param [array, low, hign]
+     * @return void
+     * @Author mh
+     * @Date 2019/8/26
+     */
+    public int[] quickSort(int[]array,int low,int hign){
+        int par=partion(array,low,hign);
+        System.out.println(par);
+        if(par>low+1){//左边还需要快排 若基准在第一个或者第二个 左边不需要再排
+            quickSort(array,low,par-1);
+        }
+        if(par<hign-1){//右边还需要快排
+            quickSort(array,par+1,hign);
+        }
+        return array;
+    }
 }
