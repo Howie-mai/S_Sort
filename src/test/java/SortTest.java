@@ -1,6 +1,12 @@
 import com.zhku.mh.Sort;
 import org.junit.Test;
 
+/**
+ * @ClassName:
+ * @description TDOO
+ * @author: mh
+ * @create: 2019-08-27 10:22
+ */
 public class SortTest {
     private int[] arr=new int[]{56,54,78,41,562,51,89};
     private Sort sort=new Sort();
@@ -46,12 +52,11 @@ public class SortTest {
         arr=sort.quickSort(arr,0,arr.length-1);
         display(arr);
     }
-//    @Test
+    //    @Test
 //    public void TestQuickSort2(){
 //        display(arr);
 //        arr=sort.quickSort2(arr,0,arr.length-1);
 //        display(arr);
 //    }
-
-
 }
+
